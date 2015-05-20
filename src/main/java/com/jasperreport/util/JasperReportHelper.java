@@ -60,27 +60,27 @@ public class JasperReportHelper
 		}
 	}
 
-//	public JasperReport compileJRXMLFile(final JasperReportTemplateType type)
-//			throws JasperReportWrapperException
-//	{
-//		try
-//		{
-//			final InputStream resourceAsStream = this.getClass().getResourceAsStream(
-//				type.getXmlPath());
-//			final JasperReport jr = JasperCompileManager.compileReport(resourceAsStream);
-//			if (jr == null)
-//			{
-//				log.error("Your report couldn't be compiled");
-//				throw new JasperReportWrapperException("Your report couldn't be compiled.");
-//			}
-//			return jr;
-//		}
-//		catch (final JRException e)
-//		{
-//			log.error("JRXML compile has failed. " + e, e);
-//			throw new JasperReportWrapperException("JRXML compile has failed. " + e, e);
-//		}
-//	}
+	public JasperReport compileJRXMLFile(final JasperReportTemplateType type)
+			throws JasperReportHelperException
+	{
+		try
+		{
+			final InputStream resourceAsStream = this.getClass().getResourceAsStream(
+				type.getXmlPath());
+			final JasperReport jr = JasperCompileManager.compileReport(resourceAsStream);
+			if (jr == null)
+			{
+				log.error("Your report couldn't be compiled");
+				throw new JasperReportHelperException("Your report couldn't be compiled.");
+			}
+			return jr;
+		}
+		catch (final JRException e)
+		{
+			log.error("JRXML compile has failed. " + e, e);
+			throw new JasperReportHelperException("JRXML compile has failed. " + e, e);
+		}
+	}
 
 	/**
 	 * Create report by JasperReport object and input parameters
