@@ -30,18 +30,18 @@ import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.engine.util.JRSaver;
 
 
-public class JasperReportWrapper
+public class JasperReportHelper
 {
-	final static Logger log = Logger.getLogger(JasperReportWrapper.class);
+	final static Logger log = Logger.getLogger(JasperReportHelper.class);
 
 	/**
 	 * Compile JRXML to JasperReport
 	 * 
 	 * @param is JRXML string
 	 * @return JasperReport
-	 * @throws JasperReportWrapperException
+	 * @throws JasperReportHelperException
 	 */
-	public JasperReport compileJRXMLFile(final InputStream is) throws JasperReportWrapperException
+	public JasperReport compileJRXMLFile(final InputStream is) throws JasperReportHelperException
 	{
 		try
 		{
@@ -49,14 +49,14 @@ public class JasperReportWrapper
 			if (jr == null)
 			{
 				log.error("Your report couldn't be compiled");
-				throw new JasperReportWrapperException("Your report couldn't be compiled.");
+				throw new JasperReportHelperException("Your report couldn't be compiled.");
 			}
 			return jr;
 		}
 		catch (final JRException e)
 		{
 			log.error("JRXML compile has failed. " + e, e);
-			throw new JasperReportWrapperException("JRXML compile has failed. " + e, e);
+			throw new JasperReportHelperException("JRXML compile has failed. " + e, e);
 		}
 	}
 
@@ -90,10 +90,10 @@ public class JasperReportWrapper
 	 * @param Map
 	 *            contains single input data
 	 * @return object that could be used for export report to pdf,hml or xml
-	 * @throws JasperReportWrapperException
+	 * @throws JasperReportHelperException
 	 */
 	public JasperPrint fillReport(final JasperReport jasperReport, final Map<String, Object> params)
-			throws JasperReportWrapperException
+			throws JasperReportHelperException
 
 	{
 		try
@@ -107,7 +107,7 @@ public class JasperReportWrapper
 			if (jp == null)
 			{
 				log.error("Your report couldn't be filled from JRObject.");
-				throw new JasperReportWrapperException(
+				throw new JasperReportHelperException(
 						"Your report couldn't be filled from JRObject.");
 			}
 			return jp;
@@ -115,7 +115,7 @@ public class JasperReportWrapper
 		catch (final JRException e)
 		{
 			log.error("Fill report has failed. " + e, e);
-			throw new JasperReportWrapperException("Fill report has failed. " + e, e);
+			throw new JasperReportHelperException("Fill report has failed. " + e, e);
 		}
 	}
 
@@ -129,11 +129,11 @@ public class JasperReportWrapper
 	 * @param Map
 	 *            contains data retrieved from any QuerProcessor
 	 * @return object that could be used for export report to pdf,hml or xml
-	 * @throws JasperReportWrapperException
+	 * @throws JasperReportHelperException
 	 */
 	public JasperPrint fillReport(final JasperReport jasperReport,
 			final Map<String, Object> params, final List<Object> paramList)
-			throws JasperReportWrapperException
+			throws JasperReportHelperException
 
 	{
 		try
@@ -144,7 +144,7 @@ public class JasperReportWrapper
 			if (jp == null)
 			{
 				log.error("Your report couldn't be filled from JRObject.");
-				throw new JasperReportWrapperException(
+				throw new JasperReportHelperException(
 						"Your report couldn't be filled from JRObject.");
 			}
 			return jp;
@@ -152,7 +152,7 @@ public class JasperReportWrapper
 		catch (final JRException e)
 		{
 			log.error("Fill report has failed. " + e, e);
-			throw new JasperReportWrapperException("Fill report has failed. " + e, e);
+			throw new JasperReportHelperException("Fill report has failed. " + e, e);
 		}
 	}
 
@@ -164,10 +164,10 @@ public class JasperReportWrapper
 	 * @param Map
 	 *            contains single input data
 	 * @return object that could be used for export report to pdf,hml or xml
-	 * @throws JasperReportWrapperException
+	 * @throws JasperReportHelperException
 	 */
 	public JasperPrint fillReport(final InputStream is, final Map<String, Object> params)
-			throws JasperReportWrapperException
+			throws JasperReportHelperException
 
 	{
 		try
@@ -180,7 +180,7 @@ public class JasperReportWrapper
 			if (jp == null)
 			{
 				log.error("Your report couldn't be filled from InputStream.");
-				throw new JasperReportWrapperException(
+				throw new JasperReportHelperException(
 						"Your report couldn't be filled from InputStream.");
 			}
 			return jp;
@@ -188,7 +188,7 @@ public class JasperReportWrapper
 		catch (final JRException e)
 		{
 			log.error("Fill report has failed. " + e, e);
-			throw new JasperReportWrapperException("Fill report has failed. " + e, e);
+			throw new JasperReportHelperException("Fill report has failed. " + e, e);
 		}
 	}
 
@@ -202,10 +202,10 @@ public class JasperReportWrapper
 	 * @param List
 	 *            contains data retrieved from any QuerProcessor
 	 * @return object that could be used for export report to pdf,hml or xml
-	 * @throws JasperReportWrapperException
+	 * @throws JasperReportHelperException
 	 */
 	public JasperPrint fillReport(final InputStream is, final Map<String, Object> params,
-			final List<Object> paramList) throws JasperReportWrapperException
+			final List<Object> paramList) throws JasperReportHelperException
 
 	{
 		try
@@ -216,7 +216,7 @@ public class JasperReportWrapper
 			if (jp == null)
 			{
 				log.error("Your report couldn't be filled from InputStream.");
-				throw new JasperReportWrapperException(
+				throw new JasperReportHelperException(
 						"Your report couldn't be filled from InputStream.");
 			}
 			return jp;
@@ -224,11 +224,11 @@ public class JasperReportWrapper
 		catch (final JRException e)
 		{
 			log.error("Fill report has failed. " + e, e);
-			throw new JasperReportWrapperException("Fill report has failed. " + e, e);
+			throw new JasperReportHelperException("Fill report has failed. " + e, e);
 		}
 	}
 
-	public byte[] getBytes(final JasperPrint jasperPrint) throws JasperReportWrapperException
+	public byte[] getBytes(final JasperPrint jasperPrint) throws JasperReportHelperException
 
 	{
 		final ByteArrayOutputStream os = new ByteArrayOutputStream();
@@ -239,12 +239,12 @@ public class JasperReportWrapper
 		catch (final JRException e)
 		{
 			log.error("error while serializing jasper print " + e);
-			throw new JasperReportWrapperException("Fill report has failed. " + e, e);
+			throw new JasperReportHelperException("Fill report has failed. " + e, e);
 		}
 		return os.toByteArray();
 	}
 
-	public JasperPrint loadJasperPrint(final byte[] bytes) throws JasperReportWrapperException
+	public JasperPrint loadJasperPrint(final byte[] bytes) throws JasperReportHelperException
 
 	{
 		final JasperPrint jasperPrint;
@@ -256,7 +256,7 @@ public class JasperReportWrapper
 		catch (final JRException e)
 		{
 			log.error("error while loading jasper print " + e);
-			throw new JasperReportWrapperException("Fill report has failed. " + e, e);
+			throw new JasperReportHelperException("Fill report has failed. " + e, e);
 		}
 
 		return jasperPrint;
@@ -267,9 +267,9 @@ public class JasperReportWrapper
 	 * 
 	 * @param jPrint
 	 * @return pdf bytes array
-	 * @throws JasperReportWrapperException
+	 * @throws JasperReportHelperException
 	 */
-	public byte[] exportReportToPdf(final JasperPrint jPrint) throws JasperReportWrapperException
+	public byte[] exportReportToPdf(final JasperPrint jPrint) throws JasperReportHelperException
 	{
 		try
 		{
@@ -279,7 +279,7 @@ public class JasperReportWrapper
 		catch (final JRException e)
 		{
 			log.error("Export report to pdf-byte[] has failed. " + e, e);
-			throw new JasperReportWrapperException(
+			throw new JasperReportHelperException(
 					"Export jasper report to pdf-byte[] has failed. " + e, e);
 		}
 	}
@@ -289,10 +289,10 @@ public class JasperReportWrapper
 	 * 
 	 * @param jasperPrint
 	 * @return target html string
-	 * @throws JasperReportWrapperException
+	 * @throws JasperReportHelperException
 	 */
 	public String exportReportToHtml(final JasperPrint jasperPrint)
-			throws JasperReportWrapperException
+			throws JasperReportHelperException
 	{
 		try
 		{
@@ -309,7 +309,7 @@ public class JasperReportWrapper
 		catch (final IOException | JRException e)
 		{
 			log.error("Export reprt as a html has failed. " + e, e);
-			throw new JasperReportWrapperException("Export jasper report to html-file has failed. "
+			throw new JasperReportHelperException("Export jasper report to html-file has failed. "
 					+ e, e);
 		}
 	}
@@ -319,10 +319,10 @@ public class JasperReportWrapper
 	 * 
 	 * @param jasperPrint
 	 * @return xml string
-	 * @throws JasperReportWrapperException
+	 * @throws JasperReportHelperException
 	 */
 	public String exportReportToXml(final JasperPrint jasperPrint)
-			throws JasperReportWrapperException
+			throws JasperReportHelperException
 	{
 		try
 		{
@@ -332,7 +332,7 @@ public class JasperReportWrapper
 		catch (final JRException e)
 		{
 			log.error("Export reprt as a html has failed. " + e, e);
-			throw new JasperReportWrapperException(
+			throw new JasperReportHelperException(
 					"Export jasper report to xml-string has failed. " + e, e);
 		}
 	}
@@ -342,9 +342,9 @@ public class JasperReportWrapper
 	 * 
 	 * @param is
 	 * @return JasperReport object
-	 * @throws JasperReportWrapperException
+	 * @throws JasperReportHelperException
 	 */
-	public JasperReport loadJasperObject(final InputStream is) throws JasperReportWrapperException
+	public JasperReport loadJasperObject(final InputStream is) throws JasperReportHelperException
 	{
 		try
 		{
@@ -354,7 +354,7 @@ public class JasperReportWrapper
 		catch (final JRException e)
 		{
 			log.error("Load JasperReport object has failed. " + e, e);
-			throw new JasperReportWrapperException("Load JasperReport object has failed. " + e, e);
+			throw new JasperReportHelperException("Load JasperReport object has failed. " + e, e);
 		}
 	}
 
@@ -363,10 +363,10 @@ public class JasperReportWrapper
 	 * 
 	 * @param is
 	 * @return JasperReport object
-	 * @throws JasperReportWrapperException
+	 * @throws JasperReportHelperException
 	 */
 	public JasperReport loadJasperObject(final JasperReportTemplateType type)
-			throws JasperReportWrapperException
+			throws JasperReportHelperException
 	{
 		try
 		{
@@ -377,13 +377,13 @@ public class JasperReportWrapper
 		catch (final JRException e)
 		{
 			log.error("Load JasperReport object has failed. " + e, e);
-			throw new JasperReportWrapperException("Load JasperReport object has failed. " + e, e);
+			throw new JasperReportHelperException("Load JasperReport object has failed. " + e, e);
 		}
 	}
 
 	public byte[] exportReport(final JasperReportContentType contentType,
 			final JasperReportTemplateType type, final Map<String, Object> params)
-			throws JasperReportWrapperException
+			throws JasperReportHelperException
 	{
 		final JasperReport report = loadJasperObject(type);
 		final JasperPrint print = fillReport(report, params);
@@ -393,7 +393,7 @@ public class JasperReportWrapper
 
 	public byte[] exportReport(final JasperReportContentType contentType,
 			final JasperReportTemplateType type, final Map<String, Object> params,
-			final List<Object> paramList) throws JasperReportWrapperException
+			final List<Object> paramList) throws JasperReportHelperException
 	{
 		final JasperReport report = loadJasperObject(type);
 		final JasperPrint print = fillReport(report, params, paramList);
@@ -402,7 +402,7 @@ public class JasperReportWrapper
 	}
 
 	public byte[] exportToBytes(final JasperReportContentType contentType, final JasperPrint print)
-			throws JasperReportWrapperException
+			throws JasperReportHelperException
 	{
 		final byte[] bytes;
 
@@ -418,7 +418,7 @@ public class JasperReportWrapper
 				bytes = exportReportToPdf(print);
 				break;
 			default:
-				throw new JasperReportWrapperException(
+				throw new JasperReportHelperException(
 						"exportReport() has failed, unknown JasperReportContentType.");
 		}
 		return bytes;
@@ -432,10 +432,10 @@ public class JasperReportWrapper
 	 * @param pageNumber
 	 *            of jasper report
 	 * @return bytes of png image
-	 * @throws JasperReportWrapperException
+	 * @throws JasperReportHelperException
 	 */
 	public byte[] getReportPagePngImage(final JasperPrint print, final int pageNumber)
-			throws JasperReportWrapperException
+			throws JasperReportHelperException
 	{
 		final float zoom = 1.6f;
 
@@ -451,7 +451,7 @@ public class JasperReportWrapper
 		catch (final JRException | IOException e)
 		{
 			log.error("Load JasperReport object has failed. " + e, e);
-			throw new JasperReportWrapperException("Getting png page[" + pageNumber
+			throw new JasperReportHelperException("Getting png page[" + pageNumber
 					+ "] for report[" + print.getName() + "] has failed." + e, e);
 		}
 

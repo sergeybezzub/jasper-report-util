@@ -25,7 +25,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 
-public class JasperReportWrapperTest
+public class JasperReportHelperTest
 {
 	private static final String DUMMY_PARAM1_VALUE = "JReport test string";
 	private final static String JRXML_DUMMY_PATH = "/DummyReport.jrxml";
@@ -44,7 +44,7 @@ public class JasperReportWrapperTest
 	
 	final Map<String, Object> params = new HashMap<String, Object>();
 
-	final private JasperReportWrapper wrapper = new JasperReportWrapper();
+	final private JasperReportHelper wrapper = new JasperReportHelper();
 	JasperReport report = null;
 	JasperReport reportFromList = null;
 	JasperReport reportA = null;
@@ -66,7 +66,7 @@ public class JasperReportWrapperTest
 	}
 
 	@Before
-	public void init() throws JasperReportWrapperException, JRException
+	public void init() throws JasperReportHelperException, JRException
 	{
 		final InputStream stream = this.getClass().getResourceAsStream(JRXML_DUMMY_PATH);
 		report = wrapper.compileJRXMLFile(stream);
@@ -183,7 +183,7 @@ public class JasperReportWrapperTest
 	}
 
 	@Test
-	public void createPdfReportPositive() throws JasperReportWrapperException
+	public void createPdfReportPositive() throws JasperReportHelperException
 	{
 
 		final JasperPrint print = wrapper.fillReport(report, params);
@@ -197,7 +197,7 @@ public class JasperReportWrapperTest
 	}
 
 	@Test
-	public void createXMLReportPositive() throws JasperReportWrapperException
+	public void createXMLReportPositive() throws JasperReportHelperException
 	{
 
 		final JasperPrint print = wrapper.fillReport(report, params);
@@ -212,7 +212,7 @@ public class JasperReportWrapperTest
 	}
 
 	@Test
-	public void createHtmlReportPositive() throws JasperReportWrapperException
+	public void createHtmlReportPositive() throws JasperReportHelperException
 	{
 
 		final JasperPrint print = wrapper.fillReport(report, params);
@@ -228,7 +228,7 @@ public class JasperReportWrapperTest
 	}
 
 	@Test
-	public void createHtmlReportFromJReportFilePositive() throws JasperReportWrapperException,
+	public void createHtmlReportFromJReportFilePositive() throws JasperReportHelperException,
 			JRException
 	{
 		final InputStream stream = this.getClass().getResourceAsStream(JASPER_PATH);
@@ -245,7 +245,7 @@ public class JasperReportWrapperTest
 	}
 
 	@Test
-	public void createXmlReportFromJReportStreamPositive() throws JasperReportWrapperException,
+	public void createXmlReportFromJReportStreamPositive() throws JasperReportHelperException,
 			JRException
 	{
 		final InputStream stream = this.getClass().getResourceAsStream(JASPER_PATH);
@@ -261,7 +261,7 @@ public class JasperReportWrapperTest
 	}
 
 	@Test
-	public void fillReportAndGetBytes() throws JasperReportWrapperException, JRException
+	public void fillReportAndGetBytes() throws JasperReportHelperException, JRException
 	{
 		final InputStream stream = this.getClass().getResourceAsStream(JASPER_PATH);
 
@@ -287,7 +287,7 @@ public class JasperReportWrapperTest
 	}
 
 	@Test
-	public void createReportComplexPositive() throws JasperReportWrapperException, JRException
+	public void createReportComplexPositive() throws JasperReportHelperException, JRException
 	{
 		final byte[] bytes = wrapper.exportReport(JasperReportContentType.HTML,
 			JasperReportTemplateType.DUMMY, params);
@@ -299,7 +299,7 @@ public class JasperReportWrapperTest
 	}
 
 	@Test
-	public void fillMainReportFromXMLPositive() throws JasperReportWrapperException,
+	public void fillMainReportFromXMLPositive() throws JasperReportHelperException,
 			URISyntaxException, IOException, JRException
 	{
 		final URL fileUrl = this.getClass().getResource("/");
@@ -321,7 +321,7 @@ public class JasperReportWrapperTest
 	}
 
 	@Test
-	public void fillMainReportPositive() throws JasperReportWrapperException,
+	public void fillMainReportPositive() throws JasperReportHelperException,
 			URISyntaxException, IOException, JRException
 	{
 
@@ -352,7 +352,7 @@ public class JasperReportWrapperTest
 	}
 
 	@Test
-	public void fillSub1ReportPositive() throws JasperReportWrapperException,
+	public void fillSub1ReportPositive() throws JasperReportHelperException,
 			URISyntaxException, IOException, JRException
 	{
 		final Map<String, Object> par = new HashMap<String, Object>();
