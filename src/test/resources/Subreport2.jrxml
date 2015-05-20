@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Subreport2" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="20" bottomMargin="20" uuid="23800005-4d01-467a-9552-cd9274c2ec35">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="id" class="java.lang.String"/>
+	<field name="index" class="java.lang.String"/>
+	<field name="sortCode" class="java.lang.String"/>
+	<field name="accountNumber" class="java.lang.String"/>
+	<field name="rti" class="java.lang.String"/>
+	<field name="reference" class="java.lang.String"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="text" class="java.lang.String"/>
+	<field name="type" class="java.lang.String"/>
+	<field name="transactionType" class="java.lang.String"/>
+	<field name="transactionTypeCode" class="java.lang.String"/>
+	<field name="paymentDate" class="org.joda.time.LocalDate"/>
+	<field name="amount" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="15">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="15" backcolor="#272425" uuid="69230276-e144-44b7-a077-5e81494b2c3b"/>
+			</frame>
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="15" forecolor="#FFFFFF" uuid="a8753be3-c24c-4589-9cdf-0e0d136349f9"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+					<paragraph leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Contra details]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="15" backcolor="#676767" uuid="9d261776-13ca-47f4-b82c-d1117d099332"/>
+			</frame>
+			<staticText>
+				<reportElement x="0" y="0" width="52" height="15" forecolor="#FFFFFF" uuid="166dd8ff-d651-4f5e-bc17-7cdcd808c81d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Sort code]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="52" y="0" width="62" height="15" forecolor="#FFFFFF" uuid="0581a5a7-cbcf-49ac-b168-8ab501cefcd5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Account no.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="418" y="0" width="72" height="15" forecolor="#FFFFFF" uuid="f7c1f8ac-b903-485a-8a94-c7420978ee66"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Payment date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="114" y="0" width="152" height="15" forecolor="#FFFFFF" uuid="ca69e8ac-d441-44cf-b059-042fdde5b351"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Statement text]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="266" y="0" width="152" height="15" forecolor="#FFFFFF" uuid="2c002ac2-ab43-4e85-86a5-acede9c3e7b5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Account name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="490" y="0" width="65" height="15" forecolor="#FFFFFF" uuid="623640d4-5023-4db7-8c18-e98dd7947339"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="52" height="15" uuid="af267221-be49-42bf-bebf-3ef0b4b992be"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sortCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="52" y="0" width="62" height="15" uuid="35188c6e-3729-4fac-9616-d3839f548be5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{accountNumber}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMM yyyy">
+				<reportElement x="418" y="0" width="72" height="15" uuid="d833c809-9d51-42cc-8d8c-cee5f5a10fcf"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{paymentDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="114" y="0" width="152" height="15" uuid="8e1bba87-c0e6-49eb-b8f0-38de24dc1502"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{text}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="266" y="0" width="152" height="15" uuid="9993ed1f-eca0-4546-9102-3cfaef22484a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="490" y="0" width="65" height="15" uuid="3a335f72-1ef4-40c6-acf6-476969b5c763"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph leftIndent="5" rightIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
